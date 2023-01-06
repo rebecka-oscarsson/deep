@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rebecka-oscarsson/deepchat/static/css/main.c9c67a08.css",
+    "main.js": "/rebecka-oscarsson/deepchat/static/js/main.17675319.js",
+    "static/js/787.91a438c8.chunk.js": "/rebecka-oscarsson/deepchat/static/js/787.91a438c8.chunk.js",
+    "index.html": "/rebecka-oscarsson/deepchat/index.html",
+    "main.c9c67a08.css.map": "/rebecka-oscarsson/deepchat/static/css/main.c9c67a08.css.map",
+    "main.17675319.js.map": "/rebecka-oscarsson/deepchat/static/js/main.17675319.js.map",
+    "787.91a438c8.chunk.js.map": "/rebecka-oscarsson/deepchat/static/js/787.91a438c8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9c67a08.css",
+    "static/js/main.17675319.js"
+  ]
+}
