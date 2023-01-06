@@ -1,7 +1,9 @@
 import { createContext } from "react";
 import socketIO from 'socket.io-client';
 
-const socket = socketIO.connect('http://localhost:4000');
+const backendUrl = process.env.REACT_APP_BACKEND_URL
+
+const socket = socketIO.connect(backendUrl);
 
 const SocketContext = createContext();
 
