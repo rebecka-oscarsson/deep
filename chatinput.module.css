@@ -1,0 +1,13 @@
+.chatinput {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.inputfield {
+  background-color: #191810;
+  padding: 0.5em;
+  color: white;
+  min-width: 30vw;
+  margin-right: 1em;
+}/*# sourceMappingURL=chatinput.module.css.map */

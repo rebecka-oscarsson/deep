@@ -1,6 +1,15 @@
-const FishImage =  ({fill, stroke}) => {return (<svg fill={fill} stroke={stroke}
-   width="413"
-   height="570">
+const FishImage = ({fill, id}) => {return (<svg stroke={fill} strokeWidth='1'
+   width="113"
+   height="170" viewBox="0 0 413 570">
+      <radialGradient id={id} fx="40%" fy="25%">
+        <stop stopColor={fill} offset="0%" stopOpacity="0.2"/>
+        <stop stopColor={fill} offset="50%" stopOpacity="0.4"/>
+        <stop stopColor={fill} offset="100%" stopOpacity="1"/>
+    </radialGradient>
+    <linearGradient id={`a${id}`} x2="50%" y2="40%" spreadMethod="reflect">
+    <stop stopColor="transparent" offset="0%" />
+      <stop stopColor={fill} offset="100%" />
+    </linearGradient>
    <g
       id="imagebot_2"
       style={{display:'inline'}}>
@@ -9,7 +18,7 @@ const FishImage =  ({fill, stroke}) => {return (<svg fill={fill} stroke={stroke}
         fillRule="evenodd"
         id="tentacles"
         style={{display:'inline'}}
-        fill='current'
+        fill={`url(#a${id})`}
         >
        <path
           d="m 221.21,416.86 -3.7499,9.2703 c 24.462,9.5451 45.248,29.003 56.42,53.039 11.193,24.026 12.792,52.685 4.187,78.017 -6.0326,17.921 -16.998,34.093 -27.617,50.446 -10.668,16.329 -21.231,33.44 -26.177,52.654 -3.4156,13.372 -3.7919,27.428 -1.3677,40.928 v 10e-6 c 2.4214,13.501 7.651,26.486 15.426,37.722 7.7775,11.235 18.049,20.647 29.722,27.604 11.673,6.9584 24.784,11.483 38.229,12.964 -13.408,-1.7825 -26.346,-6.5912 -37.753,-13.742 -11.406,-7.152 -21.317,-16.669 -28.686,-27.848 -7.3712,-11.177 -12.177,-23.978 -14.238,-37.154 -2.0586,-13.177 -1.3788,-26.771 2.1942,-39.531 5.1122,-18.399 15.842,-34.783 26.78,-50.842 10.988,-16.036 22.503,-32.313 29.408,-51.115 0,-10e-6 1e-5,-2e-5 1e-5,-2e-5 9.7284,-26.707 8.8085,-57.184 -2.6891,-83.45 -11.519,-26.256 -33.403,-47.818 -60.089,-58.962 z"
@@ -46,8 +55,9 @@ const FishImage =  ({fill, stroke}) => {return (<svg fill={fill} stroke={stroke}
         transform="translate(-182.749,-209.46)"
         d="m 390.21,209.46 c -112.18,0 -203.13,95.976 -203.13,214.38 0,8.459 -4.3313,32.291 4.7128,40.791 26.525,24.931 67.081,-11.66 100.86,-11.839 33.017,-0.17518 65.64,10.742 98.656,10.524 33.051,-0.21838 65.606,-11.419 98.656,-11.839 32.618,-0.41432 71.65,32.831 97.552,9.2082 8.3276,-7.5946 5.7927,-28.387 5.7927,-36.845 0,-118.4 -90.93,-214.38 -203.11,-214.38 z"
         id="body"
-        style={{display:'inline'}}
-        fill='current'
+        //style={{display:'inline'}}
+        fill={`url(#${id})`}
+        strokeWidth='10'
         />
    </g>
  </svg>

@@ -2,66 +2,85 @@
 
 //mobile & general
 
+
 body {
-    font-family: $font-family-everywhere;
+    font-family: $primary-font;
+    color: $font-color;
+    background-color: $primary;
+    margin: 0;
+    height: 100vh
 }
 
-h1 {
-    font-size: $h1-font-size-mobile;
-    font-weight: bold;
-    color: $secondary;
-    text-align: center;
-}
+#root {margin:0; height:100%}
 
-h2 {
-    font-size: $h2-font-size;
-    font-weight: bold;
-    color: $secondary;
-}
-h3 {
-    font-size: $h3-font-size;
-    font-weight: bold;
-}
+// h1 {
+//     font-size: $h1-font-size-mobile;
+//     font-weight: bold;
+//     color: $secondary;
+//     text-align: center;
+// }
 
-p {
-    font-size: $p-font-size;
+// h2 {
+//     font-size: $h2-font-size;
+//     font-weight: bold;
+//     color: $secondary;
+// }
+// h3 {
+//     font-size: $h3-font-size;
+//     font-weight: bold;
+// }
+
+// p {
+//     font-size: $p-font-size;
+// }
+
+.btn {
+    border: 3px solid;
+    border-radius: 12px;
+    padding: $spacing-small;  
+    letter-spacing: 0.2em;
+    box-shadow: 3px 3px 10px -3px $darkgrey;
+    background-color: $primary;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        background-color: rgba(112, 112, 112, 0.64);
+    }
 }
 
 .primary-btn {
-    background-color: $accent;
-    border: none;
-    border-radius: 12px;
-    padding: 18px 28px 18px 33px;
-    font-size: 24px;
-    color: white;
-    letter-spacing: 5px;
-    box-shadow: 3px 3px 10px -3px $darkgrey;
-
+    @extend .btn;
+    border-color: $accent; 
+    color: $accent;  
     &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-        background-color: #afe3df;
+        background-color: $accent-dark;
+        color: white;
     }
+}
 
-    &:active {
-        cursor: pointer;
-        text-decoration: none;
-        background-color: rgba(112, 112, 112, 0.64);
+.secondary-btn {
+    @extend .btn;
+    border-color: $secondary-btn;
+    color: $secondary-btn;
+    &:hover {      
+        background-color: $secondary-btn-dark;
+        color: white;
     }
 }
 
 //tablet
 
-@media (min-width: 480px) and (max-width: 768px) {
-    h1 {
-        font-size: $h1-font-size-tablet;
-    }
-}
+// @media (min-width: 480px) and (max-width: 768px) {
+//     h1 {
+//         font-size: $h1-font-size-tablet;
+//     }
+// }
 
-//desktop
+// //desktop
 
-@media (min-width: 769px) {
-    h1 {
-        font-size: $h1-font-size-desktop;
-    }
-}
+// @media (min-width: 769px) {
+//     h1 {
+//         font-size: $h1-font-size-desktop;
+//     }
+// }

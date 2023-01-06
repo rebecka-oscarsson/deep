@@ -1,0 +1,11 @@
+.loginform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginform label {
+  display: block;
+}
+.loginform input {
+  margin: 0 1em 1em 0;
+}/*# sourceMappingURL=home.module.css.map */

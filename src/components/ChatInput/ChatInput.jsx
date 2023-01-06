@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import SocketContext from '../../SocketContext';
 import { useContext } from 'react';
+import { useNavigate } from "react-router-dom";
+import styles from "./chatinput.module.scss";
+
 
 const ChatInput = () => {
   const [message, setMessage] = useState('');
   const socket = useContext(SocketContext);
+  const navigate = useNavigate();
 
   const handleSendMessage = (e) => {
     e.preventDefault();
@@ -18,19 +22,30 @@ const ChatInput = () => {
     }
     setMessage('');
   };
+
+  const handleLeaveChat = () => {
+    socket.close();
+    localStorage.removeItem("userName");
+    navigate("/");
+    window.location.reload();
+  };
+
   return (
-    <div className="">
-      <form className="form" onSubmit={handleSendMessage}>
+    <div className={styles.chatinput} >
+      <form onSubmit={handleSendMessage}>
         <input
           type="text"
-          placeholder="Write message"
-          className="message"
+          placeholder="Write message"    
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          className={styles.inputfield}
         />
-        <button className="sendBtn">talk</button>
-      </form>
-    </div>
+        <button className="primary-btn" type="submit">talk</button>
+        </form>
+        <button className="secondary-btn" onClick={handleLeaveChat}>
+        leave
+      </button>
+      </div>
   );
 };
 
