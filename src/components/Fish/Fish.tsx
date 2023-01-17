@@ -5,7 +5,8 @@ import FishImage from "../FishImages/FishImage"
 interface Message {
   id: string;
   text: string;
-  time: string
+  time: string;
+  formattedTime: string
 }
 
 type position = {
@@ -32,7 +33,7 @@ const Fish = ({ id, username, movement, messages, color, position }: FishProps) 
 
   return (
     <div style={style} >
-      {messages && <div>{messages[messages.length - 1]?.text} <br />{messages[messages.length - 1]?.time}</div>}
+      {messages && <div>{messages[messages.length - 1]?.text} <br />{messages[messages.length - 1]?.formattedTime}</div>}
       <div className={styles[movement]}><FishImage fill={color} id={id}/>
       </div><div className={styles.username}>{username}</div>
     </div>

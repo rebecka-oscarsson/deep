@@ -18,7 +18,7 @@ const ChatBody = () => {
 
 
   useEffect(() => {
-    socket.on("messageToUsers", (data) => {console.log(data); data.map((message)=> (message.time= formatTime(message.time))); setMessages(data)});
+    socket.on("messageToUsers", (data) => {console.log(data); data.map((message)=> (message.formattedTime= formatTime(message.time))); setMessages(data)});
   }, [socket, messages]);
   //varför behöver jag en useeffect? För när en ny användare loggar in?
 
