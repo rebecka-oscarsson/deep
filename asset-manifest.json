@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/deepchat/static/css/main.c9c67a08.css",
-    "main.js": "/deepchat/static/js/main.c2532e49.js",
-    "static/js/787.91a438c8.chunk.js": "/deepchat/static/js/787.91a438c8.chunk.js",
-    "index.html": "/deepchat/index.html",
-    "main.c9c67a08.css.map": "/deepchat/static/css/main.c9c67a08.css.map",
-    "main.c2532e49.js.map": "/deepchat/static/js/main.c2532e49.js.map",
-    "787.91a438c8.chunk.js.map": "/deepchat/static/js/787.91a438c8.chunk.js.map"
+    "main.css": "/deep/static/css/main.57e071f7.css",
+    "main.js": "/deep/static/js/main.0ca2501d.js",
+    "static/js/787.91a438c8.chunk.js": "/deep/static/js/787.91a438c8.chunk.js",
+    "index.html": "/deep/index.html",
+    "main.57e071f7.css.map": "/deep/static/css/main.57e071f7.css.map",
+    "main.0ca2501d.js.map": "/deep/static/js/main.0ca2501d.js.map",
+    "787.91a438c8.chunk.js.map": "/deep/static/js/787.91a438c8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c9c67a08.css",
-    "static/js/main.c2532e49.js"
+    "static/css/main.57e071f7.css",
+    "static/js/main.0ca2501d.js"
   ]
 }
