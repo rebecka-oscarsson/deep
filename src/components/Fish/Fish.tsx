@@ -1,18 +1,19 @@
 import React from "react";
 import styles from "./fish.module.scss";
-import FishImage from "../FishImages/FishImage"
+import FishImage from "../FishImages/FishImage";
+import Bubble from "../Bubble/Bubble";
 
 interface Message {
   id: string;
   text: string;
   time: string;
-  formattedTime: string
+  formattedTime: string;
 }
 
 type position = {
   top: Number;
   left: Number;
-}
+};
 
 interface FishProps {
   id: string;
@@ -20,22 +21,31 @@ interface FishProps {
   movement: string;
   messages?: Message[];
   color: string;
-  position: position
+  position: position;
 }
 
-const Fish = ({ id, username, movement, messages, color, position }: FishProps) => {
-
+const Fish = ({
+  id,
+  username,
+  movement,
+  messages,
+  color,
+  position,
+}: FishProps) => {
   const style = {
-    position: 'absolute',
+    position: "absolute",
     top: position.top + "%",
-    left: position.left + "%"
+    left: position.left + "%",
   } as React.CSSProperties;
 
   return (
-    <div style={style} >
-      {messages && <div>{messages[messages.length - 1]?.text} <br />{messages[messages.length - 1]?.formattedTime}</div>}
-      <div className={styles[movement]}><FishImage fill={color} id={id}/>
-      </div><div className={styles.username}>{username}</div>
+    <div style={style} className={styles.container}>
+      {messages && messages.length?
+       <Bubble messages={messages} /> : null
+      }
+      <div className={styles[movement]} title={username}>
+        <FishImage fill={color} id={id} />
+      </div>
     </div>
   );
 };

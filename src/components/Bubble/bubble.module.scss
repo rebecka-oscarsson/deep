@@ -1,0 +1,5 @@
+@import "../../variables.modules.scss";
+
+.bubble {border-radius: $spacing-big; padding: $spacing-small; margin: $spacing-small; border:1px solid lightgrey; transition: all 1.25s ease-in;}
+.container svg {width:90%; display: block;}
+.timestamp {font: $spacing-small $small-font; text-transform: uppercase;}
