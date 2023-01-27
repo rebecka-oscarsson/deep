@@ -2,13 +2,13 @@
   "name": "fishchat",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/deepchat",
+  "homepage": "/deep",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.9",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.4",
@@ -45,8 +45,7 @@
     ]
   },
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.1",
-    "gh-pages": "^4.0.0",
-    "typescript-plugin-css-modules": "^4.1.1"
+    "@tsconfig/create-react-app": "^1.0.3",
+    "gh-pages": "^4.0.0"
   }
 }

@@ -1,6 +1,6 @@
 const FishImage = ({fill, id}) => {return (<svg stroke={fill} strokeWidth='1'
-   width="113"
-   height="170" viewBox="0 0 413 570">
+   
+   viewBox="0 0 413 570">
       <radialGradient id={id} fx="40%" fy="25%">
         <stop stopColor={fill} offset="0%" stopOpacity="0.2"/>
         <stop stopColor={fill} offset="50%" stopOpacity="0.4"/>
@@ -12,12 +12,13 @@ const FishImage = ({fill, id}) => {return (<svg stroke={fill} strokeWidth='1'
     </linearGradient>
    <g
       id="imagebot_2"
-      style={{display:'inline'}}>
+      //style={{display:'block'}}
+      >
      <g
         transform="translate(-182.749,-209.46)"
         fillRule="evenodd"
         id="tentacles"
-        style={{display:'inline'}}
+        //style={{display:'inline'}}
         fill={`url(#a${id})`}
         >
        <path
@@ -55,7 +56,6 @@ const FishImage = ({fill, id}) => {return (<svg stroke={fill} strokeWidth='1'
         transform="translate(-182.749,-209.46)"
         d="m 390.21,209.46 c -112.18,0 -203.13,95.976 -203.13,214.38 0,8.459 -4.3313,32.291 4.7128,40.791 26.525,24.931 67.081,-11.66 100.86,-11.839 33.017,-0.17518 65.64,10.742 98.656,10.524 33.051,-0.21838 65.606,-11.419 98.656,-11.839 32.618,-0.41432 71.65,32.831 97.552,9.2082 8.3276,-7.5946 5.7927,-28.387 5.7927,-36.845 0,-118.4 -90.93,-214.38 -203.11,-214.38 z"
         id="body"
-        //style={{display:'inline'}}
         fill={`url(#${id})`}
         strokeWidth='10'
         />

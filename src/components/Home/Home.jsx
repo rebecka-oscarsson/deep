@@ -30,9 +30,9 @@ const Home = () => {
       userName,
       socketID: socket.id,
       userColor: userColor,
-      position: { top: 0, left: 0 },
+      position: { top: randomVal(0, 70), left: randomVal(0, 93) },
     });
-    navigate("/chat");
+    navigate("/talk");
   };
 
   return (

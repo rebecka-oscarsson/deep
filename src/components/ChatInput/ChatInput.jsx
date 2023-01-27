@@ -38,6 +38,7 @@ const ChatInput = () => {
           placeholder="Write message"    
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          maxLength="100"
           className={styles.inputfield}
         />
         <button className="primary-btn" type="submit">talk</button>

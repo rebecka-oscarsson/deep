@@ -1,5 +1,5 @@
 import './App.scss';
-import './normalize.css'
+import './'
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import ChatPage from './components/ChatPage/ChatPage.tsx';
@@ -12,7 +12,7 @@ function App() {
     <HashRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/chat" element={<ChatPage />}></Route>
+          <Route path="/talk" element={<ChatPage />}></Route>
         </Routes>
     </HashRouter>
     </SocketProvider>
