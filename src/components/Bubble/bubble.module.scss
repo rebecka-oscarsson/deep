@@ -1,5 +1,15 @@
 @import "../../variables.modules.scss";
 
-.bubble {border-radius: $spacing-big; padding: $spacing-small; margin: $spacing-small; border:1px solid lightgrey; transition: all 1.25s ease-in;}
-.container svg {width:90%; display: block;}
+.bubble {border-radius: $spacing-big; padding: $spacing-normal; margin-bottom: $spacing-normal; box-shadow: inset 0 0 10px rgba(white, 0.5); border: 1px solid rgba(white, 0.5);}
 .timestamp {font: $spacing-small $small-font; text-transform: uppercase;}
+.new {animation: 0.5s ease-in-out grow}
+.first {animation: 0.5s ease-in appear}
+
+@keyframes grow {
+   50% {transform: scale(1.2);}
+  }
+
+  @keyframes appear {
+    0% {height:0; width: 0; font-size: 0;}
+    100% {height:auto; width: auto;}
+   }

@@ -1,8 +1,7 @@
 @import "../../variables.modules.scss";
 
-.container {width:7vw;}
-.container svg {width:90%; display: block;}
-.username {text-align: center;}
+.container {width:14vw; display: flex; flex-direction: column; align-items: center;}
+.container svg {width:7vw; display: block;}
 
 .ArrowRight svg {
   animation-name: swim;
@@ -61,33 +60,3 @@
     transform: scale(1, 1);
   }
 }
-
-// @keyframes swimright {
-//   0%, 100% {
-//     transform: scale(1, 1) skew(-10deg);
-//   }
-//   25% {
-//     transform: scale(1.1, 0.9) skew(-10deg);
-//   }
-//   50% {
-//     transform: scale(1, 1) skew(-10deg);
-//   }
-//   75% {
-//     transform: scale(0.9, 1.1) skew(-10deg);
-//   }
-// }
-
-// @keyframes swimleft {
-//   0%, 100% {
-//     transform: scale(1, 1) skew(10deg);
-//   }
-//   25% {
-//     transform: scale(1.1, 0.9) skew(10deg);
-//   }
-//   50% {
-//     transform: scale(1, 1) skew(10deg);
-//   }
-//   75% {
-//     transform: scale(0.9, 1.1) skew(10deg);
-//   }
-// }
