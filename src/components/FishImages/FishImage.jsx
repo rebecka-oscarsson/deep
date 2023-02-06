@@ -4,7 +4,7 @@ const FishImage = ({ fill, darkColor, id }) => {
       <radialGradient id={id} fx="40%" fy="25%">
         <stop stopColor={fill} offset="0%" stopOpacity="0.4" />
         <stop stopColor={fill} offset="50%" stopOpacity="0.5" />
-        <stop stopColor={fill} offset="100%" startOpacity="0.7" stopOpacity="0.9" />
+        <stop stopColor={fill} offset="100%" stopOpacity="0.8" />
       </radialGradient>
       <linearGradient id={`a${id}`} x2="50%" y2="40%" spreadMethod="reflect">
         <stop stopColor="transparent" offset="0%" />

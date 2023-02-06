@@ -26,7 +26,6 @@ const ChatBody = () => {
 
   useEffect(() => {
     socket.on("messageToUsers", (message) => {
-      console.log(message);
       setNewMessage(message);
     });
   }, [socket]);
