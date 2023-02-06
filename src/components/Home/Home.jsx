@@ -1,6 +1,6 @@
 import styles from "./home.module.scss";
 
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import SocketContext from "../../SocketContext";
 
@@ -12,15 +12,17 @@ const Home = () => {
     //ger slumpsiffror till färggenerering
     return Math.floor(Math.random() * (max - min) + 1) + min;
   }
+
   const userColor =
     "hsl(" +
     randomVal(0, 360) +
     ", " +
     randomVal(60, 80) +
-    "%,  " +
+    "%, " +
     randomVal(70, 90) +
     "%)";
   //hue mellan 0-360, saturation 0-100, lightness 0-100
+  
   const socket = useContext(SocketContext);
 
   const handleSubmit = (e) => {
@@ -31,6 +33,7 @@ const Home = () => {
       socketID: socket.id,
       userColor: userColor,
       position: { top: randomVal(0, 70), left: randomVal(0, 93) },
+      messages: []
     });
     navigate("/talk");
   };
