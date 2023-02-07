@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SocketContext from '../../SocketContext';
 import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import styles from "./chatinput.module.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+  import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
 
 
 const ChatInput = () => {
@@ -27,7 +29,6 @@ const ChatInput = () => {
     socket.close();
     localStorage.removeItem("userName");
     navigate("/");
-    window.location.reload();
   };
 
   return (
@@ -43,6 +44,7 @@ const ChatInput = () => {
         />
         <button className="primary-btn" type="submit">talk</button>
         </form>
+        <FontAwesomeIcon icon={faQuestionCircle} className={styles.question}/>
         <button className="secondary-btn" onClick={handleLeaveChat}>
         leave
       </button>

@@ -1,11 +1,12 @@
 import styles from "./home.module.scss";
 
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import SocketContext from "../../SocketContext";
 
 const Home = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [userName, setUserName] = useState("");
 
   function randomVal(min, max) {
@@ -24,6 +25,19 @@ const Home = () => {
   //hue mellan 0-360, saturation 0-100, lightness 0-100
   
   const socket = useContext(SocketContext);
+
+  const switchSocket = () => {
+    {socket.close();
+    localStorage.removeItem("userName");
+    socket.open();
+  }
+  };
+
+  //gör att socket stängs och öppnas igen om man backat i browsern
+  useEffect(() => {
+    switchSocket();
+  }, [location]);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

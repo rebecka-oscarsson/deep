@@ -10,16 +10,17 @@ const ChatBody = () => {
   const [users, setUsers] = useState([]);
   const socket = useContext(SocketContext);
 
+  function addFormattedTime(message) {
+    if (!message.formattedTime) {
+      message.formattedTime = formatTime(message.time);
+    }
+  };
+
   useEffect(() => {
-    socket.on("updateUserList", (userList) => {
-      function addFormattedTime(message) {
-        if (!message.formattedTime) {
-          message.formattedTime = formatTime(message.time);
-        }
-      };
+    socket.on("updateUserList", (userList) => {     
       userList.forEach((user) =>
-        user.messages.forEach((message) => addFormattedTime(message))
-      );
+        {user.messages?.forEach((message) => addFormattedTime(message))}
+    );
       setUsers(userList);
     });
   }, [socket, users]);

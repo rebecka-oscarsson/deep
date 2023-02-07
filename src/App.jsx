@@ -7,6 +7,10 @@ import {SocketProvider} from './SocketContext';
 
 function App() {
   
+  if (window.screen.width <= 700) {
+    window.location = "https://blackholechat.onrender.com/";
+  }
+
   return (
     <SocketProvider>
     <HashRouter>
