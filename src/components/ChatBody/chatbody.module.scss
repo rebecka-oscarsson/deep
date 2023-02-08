@@ -1,6 +1,15 @@
 @import '../../variables.modules.scss';
 
-.chatbody {flex-grow:1; background-color: rgb(27, 33, 34); height:100%; clip-path: polygon(
+details > summary {
+  list-style: none;
+}
+details > summary::marker, /* Latest Chrome, Edge, Firefox */ 
+details > summary::-webkit-details-marker /* Safari */ {
+  display: none;
+}
+.question { justify-self:flex-end; text-align: right; margin: $spacing-big $spacing-big 0 0}
+.question_icon {cursor:pointer; font-size: $spacing-xl; background-color:black; border-radius: 50%;}
+.chatbody {display:grid; flex-grow:1; background-color: rgb(27, 33, 34); height:100%; clip-path: polygon(
     100% 0%,
     0% 0%,
     0% 65%,

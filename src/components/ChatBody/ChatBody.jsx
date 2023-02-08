@@ -4,6 +4,8 @@ import SocketContext from "../../SocketContext";
 import Fish from "../Fish/Fish.tsx";
 import { formatTime } from "../../services";
 import styles from "./chatbody.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
 
 const ChatBody = () => {
   const [newMessage, setNewMessage] = useState({});
@@ -14,13 +16,13 @@ const ChatBody = () => {
     if (!message.formattedTime) {
       message.formattedTime = formatTime(message.time);
     }
-  };
+  }
 
   useEffect(() => {
-    socket.on("updateUserList", (userList) => {     
-      userList.forEach((user) =>
-        {user.messages?.forEach((message) => addFormattedTime(message))}
-    );
+    socket.on("updateUserList", (userList) => {
+      userList.forEach((user) => {
+        user.messages?.forEach((message) => addFormattedTime(message));
+      });
       setUsers(userList);
     });
   }, [socket, users]);
@@ -34,6 +36,13 @@ const ChatBody = () => {
 
   return (
     <main className={styles.chatbody}>
+      <details className={styles.question}>
+        <summary>
+          <FontAwesomeIcon icon={faQuestionCircle} className={styles.question_icon}/>
+        </summary>
+        <div>Move using the arrow keys</div>
+        <div>Hover over others to see their names</div>
+      </details>
       {users.map((user) => (
         <Fish
           id={user.socketID}
@@ -41,9 +50,7 @@ const ChatBody = () => {
           key={user.socketID}
           movement={user.movement}
           messages={user.messages}
-          newMessage={
-            newMessage.socketID === user.socketID ? newMessage : null
-          }
+          newMessage={newMessage.socketID === user.socketID ? newMessage : null}
           color={user.userColor}
           position={user.position}
         ></Fish>
