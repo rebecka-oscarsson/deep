@@ -58,7 +58,7 @@ return darkColor}
 
   return (
     <div style={style} className={styles.container}>
-      {messages && messages.length ?
+      {messages && newMessage ?
         <Bubble messages={messages} newMessage={newMessage}/> : null
       }
       <div className={styles[movement]} title={username}>
