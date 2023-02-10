@@ -24,7 +24,6 @@ const ChatInput = () => {
 
   const handleLeaveChat = () => {
     socket.close();
-    localStorage.removeItem("userName");
     navigate("/");
   };
 

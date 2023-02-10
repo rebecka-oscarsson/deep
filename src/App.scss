@@ -14,26 +14,12 @@ body {
 
 #root {margin:0; height:100%}
 
-// h1 {
-//     font-size: $h1-font-size-mobile;
-//     font-weight: bold;
-//     color: $secondary;
-//     text-align: center;
-// }
-
-// h2 {
-//     font-size: $h2-font-size;
-//     font-weight: bold;
-//     color: $secondary;
-// }
-// h3 {
-//     font-size: $h3-font-size;
-//     font-weight: bold;
-// }
-
-// p {
-//     font-size: $p-font-size;
-// }
+input {
+    padding: $spacing-small;
+    border-radius: 5px;
+    font-family: $primary-font;
+  }
+  
 
 .btn {
     border: 3px solid;
@@ -69,6 +55,16 @@ body {
         color: white;
     }
 }
+
+.disabled-btn { 
+    @extend .btn;
+    pointer-events: none;
+    border-color: $disabled-btn;
+    color: $disabled-btn;
+    &:hover {      
+        background-color: $disabled-btn-dark;
+        color: white;
+    }}
 
 //tablet
 

@@ -1,49 +1,37 @@
 import { useEffect, useState, useContext } from "react";
 
 import SocketContext from "../../SocketContext";
+import UsersContext from "../../UsersContext";
 import Fish from "../Fish/Fish.tsx";
-import { formatTime } from "../../services";
 import styles from "./chatbody.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
 
 const ChatBody = () => {
   const [newMessage, setNewMessage] = useState({});
-  const [users, setUsers] = useState([]);
   const socket = useContext(SocketContext);
-
-  function addFormattedTime(message) {
-    if (!message.formattedTime) {
-      message.formattedTime = formatTime(message.time);
-    }
-  }
-
-  useEffect(() => {
-    socket.on("updateUserList", (userList) => {
-      userList.forEach((user) => {
-        user.messages?.forEach((message) => addFormattedTime(message));
-      });
-      setUsers(userList);
-    });
-  }, [socket, users]);
+  const users = useContext(UsersContext);
 
   useEffect(() => {
     socket.on("messageToUsers", (message) => {
       setNewMessage(message);
     });
   }, [socket]);
-  //varför behöver jag en useeffect? För när en ny användare loggar in?
+
 
   return (
     <main className={styles.chatbody}>
       <details className={styles.question}>
         <summary>
-          <FontAwesomeIcon icon={faQuestionCircle} className={styles.question_icon}/>
+          <FontAwesomeIcon
+            icon={faQuestionCircle}
+            className={styles.question_icon}
+          />
         </summary>
         <div>Move using the arrow keys</div>
         <div>Hover over others to see their names</div>
       </details>
-      {users.map((user) => (
+      {users? users.map((user) => (
         <Fish
           id={user.socketID}
           username={user.userName}
@@ -53,8 +41,8 @@ const ChatBody = () => {
           newMessage={newMessage.socketID === user.socketID ? newMessage : null}
           color={user.userColor}
           position={user.position}
-        ></Fish>
-      ))}
+        ></Fish> 
+      )): null}
       <svg width="0" height="0">
         {/*this svg is not visible but its paths are used to clip in css*/}
         <defs>
