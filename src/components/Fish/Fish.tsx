@@ -2,15 +2,16 @@ import React from "react";
 import styles from "./fish.module.scss";
 import FishImage from "../FishImages/FishImage";
 import Bubble from "../Bubble/Bubble";
+import { darkenColor } from "../../services"
 
-interface Message {
+export interface Message {
   id: string;
   text: string;
   time: string;
   formattedTime: string;
 }
 
-interface newMessage {
+export interface newMessage {
   id: string;
   first: boolean;
 }
@@ -31,8 +32,6 @@ interface FishProps {
   position: position;
 }
 
-
-
 const Fish = ({
   id,
   username,
@@ -48,21 +47,13 @@ const Fish = ({
     left: position.left + "%",
   } as React.CSSProperties;
 
-function darkenColor()
-{let splitColor =  color.split(',');
-let lightness = splitColor[2]
-let lightnessNumber = parseInt(lightness.slice(0,lightness.length-2));
-const darkerNumber = Math.round(lightnessNumber*0.5);
-let darkColor = `${splitColor[0]},${splitColor[1]}, ${String(darkerNumber)}%)`
-return darkColor}
-
   return (
     <div style={style} className={styles.container}>
-      {messages && newMessage ?
-        <Bubble messages={messages} newMessage={newMessage}/> : null
+      {messages && messages.length > 0 ?
+        <Bubble messages={messages} newMessage={newMessage} /> : null
       }
       <div className={styles[movement]} title={username}>
-        <FishImage fill={color} darkColor={darkenColor()} id={id} />
+        <FishImage fill={color} darkColor={darkenColor(color)} id={id} />
       </div>
     </div>
   );
