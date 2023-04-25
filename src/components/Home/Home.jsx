@@ -1,5 +1,4 @@
-import styles from "./home.module.scss";
-import { useState, useEffect, useContext } from "react";
+import styles from "./home.module.scss";import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import SocketContext from "../../SocketContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +11,9 @@ const Home = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState(savedName);
   const [connected, setConnected] = useState(socket.connected);
+  const [avatar, setAvatar] = useState(null);
+  //flytta och exportera från lämplig fil men vilken?
+  const backendUrl = process.env.NODE_ENV === 'development' ? "http://localhost:4000/" : "https://chat-backend-djp6.onrender.com";
 
   useEffect(() => {
     setConnected(socket.connected);
@@ -29,16 +31,35 @@ const Home = () => {
     setConnected(socket.connected);
   });
 
+  //tänker det här ska bli post till en databas senare
+  function postImage(payload) {
+    fetch(backendUrl, {    
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(function(err) {
+            {console.log('Något gick fel', err)};
+        });
+}
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    postImage({"filename": avatar})
     localStorage.setItem("userName", userName);
-
     socket.emit("newUser", {
       userName,
       socketID: socket.id,
       userColor: userColor,
       position: { top: randomVal(0, 70), left: randomVal(0, 93) },
       messages: [],
+      avatar: avatar
     });
     navigate("/talk");
   };
@@ -56,6 +77,14 @@ const Home = () => {
           className=""
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
+        />
+        <label htmlFor="avatar">upload avatar (optional)</label>
+        <input
+          type="file"
+          id="avatar"
+          name="avatar"
+          accept="image/*"
+          onChange={(e) => setAvatar(e.target.files[0].name)}
         />
       </div>
       {connected ? (

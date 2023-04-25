@@ -44,6 +44,7 @@ const ChatBody = () => {
               }
               color={user.userColor}
               position={user.position}
+              avatar={user.avatar}
             ></Fish>
           ))
         : null}

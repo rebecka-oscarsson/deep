@@ -30,6 +30,7 @@ interface FishProps {
   color: string;
   darkColor: string;
   position: position;
+  avatar?: object
 }
 
 const Fish = ({
@@ -40,6 +41,7 @@ const Fish = ({
   newMessage,
   color,
   position,
+  avatar
 }: FishProps) => {
   const style = {
     position: "absolute",
