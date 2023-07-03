@@ -87,7 +87,6 @@ const Fish = ({
     const avatarWidthInVw = landscapeOrientedAvatar? avatarsLongestSide : avatarsLongestSide * widthToHeightRatio;
     const avatarHeightInVh = landscapeOrientedAvatar? avatarsLongestSide/widthToHeightRatio*screenWidthToHeightRatio : avatarsLongestSide*screenWidthToHeightRatio;
     const avatarHeightInPercentOfOceanHeight = avatarHeightInVh/oceanHeightInVh
-    console.log(avatarHeightInPercentOfOceanHeight)
     const availableHeight = 100 - avatarHeightInPercentOfOceanHeight;
     const availableWidth = 100 - avatarWidthInVw;
     const availableOcean = { height: availableHeight, width: availableWidth };
@@ -142,7 +141,7 @@ const Fish = ({
   function bubbleStyle() {
     const bubbleHeightInPercent = bubbleDimensions.height? oceanSize.height/bubbleDimensions.height: 0;
     const bubbleWidthInPercent = bubbleDimensions.width? oceanSize.width/bubbleDimensions.width: 0;
-    console.log('hav i pixlar ', oceanSize, 'bubbla bredd ', bubbleWidthInPercent, bubbleDimensions.width, '%, höjd ', bubbleHeightInPercent, bubbleDimensions.height) //det stämmer inte, procenten går åt fel håll
+    //console.log('hav i pixlar ', oceanSize, 'bubbla bredd ', bubbleWidthInPercent, bubbleDimensions.width, '%, höjd ', bubbleHeightInPercent, bubbleDimensions.height) //det stämmer inte, procenten går åt fel håll
     return {
     position: "absolute",
     bottom: userPosition?.top && 100-userPosition.top + "%",
