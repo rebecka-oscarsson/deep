@@ -1,4 +1,4 @@
-export const backendUrl = process.env.NODE_ENV === 'development' ? "http://localhost:4000/" : "https://chat-backend-djp6.onrender.com";
+export const backendUrl = process.env.NODE_ENV === 'development' ? "http://localhost:4000/" : "https://chat-backend-djp6.onrender.com/";
 
 //gör om tiden från backend till användarens tidszon + snyggt format
 export function formatTime(time) {
