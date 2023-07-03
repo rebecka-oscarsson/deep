@@ -163,7 +163,7 @@ const Fish = ({
     calculateUserPosition()
   }, [position])
 
-  const imageUrl = backendUrl + "images/" + avatar;
+  const imageUrl = backendUrl + "uploads/" + avatar;
 
   const updateBubbleDimensions = (dimensions: dimensions) => {
     setBubbleDimensions(dimensions);
