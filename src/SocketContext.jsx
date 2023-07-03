@@ -1,7 +1,6 @@
 import { createContext } from "react";
 import socketIO from 'socket.io-client';
-
-const backendUrl = process.env.NODE_ENV === 'development' ? "http://localhost:4000/" : "https://chat-backend-djp6.onrender.com";
+import { backendUrl } from "./services"
 
 const socket = socketIO.connect(backendUrl);
 

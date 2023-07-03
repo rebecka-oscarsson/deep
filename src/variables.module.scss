@@ -30,3 +30,8 @@ $spacing-xl: 2em;
 $spacing-big: 1.5em;
 $spacing-normal: 1em;
 $spacing-small: 0.5em;
+$avatar-longestside: 7vw;
+
+:export {
+    avatarsLongestSide:$avatar-longestside
+}

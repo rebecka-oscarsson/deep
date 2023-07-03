@@ -1,4 +1,4 @@
-@import "../../variables.modules.scss";
+@import "../../variables.module.scss";
 
 .loginform {
   display:flex;
@@ -7,5 +7,8 @@
   label {display:block}
   input{ margin: 0 $spacing-normal $spacing-normal 0}
 }
+
+.image_preview {border: 2px solid white;}
+.image_picker {display: grid; grid-template-columns: 1fr auto ;}
 
 .hourglass_icon {margin: $spacing-big; font-size: $spacing-xl;}

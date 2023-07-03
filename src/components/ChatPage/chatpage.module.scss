@@ -1,7 +1,4 @@
-@import '../../variables.modules.scss';
+@import '../../variables.module.scss';
 
-.chatpage {display:flex; flex-flow: column; height: 100%; background-image: radial-gradient($footer1 2px, transparent 2px), radial-gradient($footer1 2px, transparent 2px);
-    background-size: 16px 16px;
-    background-position: 0 0, 8px 8px;
-    
-background-color: $footer3;}
+.chatpage {display:flex; flex-flow: column; height: 100%; 
+z-index:0;   background: linear-gradient(25deg, $primary, rgb(2, 25, 29));}
