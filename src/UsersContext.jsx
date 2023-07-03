@@ -22,7 +22,7 @@ export function UsersProvider({ children }) {
     });
   }, [socket, users]);
   return (
-    <UsersContext.Provider value={users}>{children}</UsersContext.Provider>
+    <UsersContext.Provider value={{users, setUsers}}>{children}</UsersContext.Provider>
   );
 }
 
