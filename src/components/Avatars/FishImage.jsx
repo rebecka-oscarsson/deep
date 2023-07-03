@@ -12,13 +12,11 @@ const FishImage = ({ fill, darkColor, id }) => {
       </linearGradient>
       <g
         id="imagebot_2"
-        //style={{display:'block'}}
       >
         <g
           transform="translate(-182.749,-209.46)"
           fillRule="evenodd"
           id="tentacles"
-          //style={{display:'inline'}}
           fill={`url(#a${id})`}
         >
           <path

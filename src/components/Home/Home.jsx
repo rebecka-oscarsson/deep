@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SocketContext from "../../SocketContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHourglass2 } from "@fortawesome/free-regular-svg-icons";
-import { userColor, randomVal } from "../../services";
+import { userColor, randomVal, backendUrl } from "../../services";
 
 const Home = () => {
   const savedName = localStorage.getItem("userName") || "";
@@ -11,26 +11,29 @@ const Home = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState(savedName);
   const [connected, setConnected] = useState(socket.connected);
-  const [avatar, setAvatar] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null);
-  //flytta och exportera från lämplig fil men vilken?
-  const backendUrl = process.env.NODE_ENV === 'development' ? "http://localhost:4000/" : "https://chat-backend-djp6.onrender.com";
+  const [fileToUpload, setFileToUpload] = useState(null);
+  const [avatarPreview, setavatarPreview] = useState(null);
+  // const [avatar, setAvatar] = useState({
+  //   filename: null,
+  //   widthToHeightRatio: 0.75,
+  // });
 
   useEffect(() => {
     setConnected(socket.connected);
   }, [socket]);
 
   //för att man ska få en ny socket om man tryckt bakåt i browsern
+
   useEffect(() => {
     if (connected) {
       socket.close();
     }
-    socket.connect();
+    socket.connect(); // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
-    previewFile(avatar);
-  }, [avatar]);
+    previewFile(fileToUpload);
+  }, [fileToUpload]);
 
   socket.on("connect", function () {
     setConnected(socket.connected);
@@ -44,47 +47,51 @@ const Home = () => {
     }
     // As the File loaded then set the stage as per the file type
     reader.onload = (readerEvent) => {
-        setImagePreview(readerEvent.target.result);
+      setavatarPreview(readerEvent.target.result);
     };
   }
 
   //tänker det här ska bli post till en databas senare
-  function postImage(file) {
-    const formData = new FormData()
-    formData.append("file", file, file.name)
-    fetch(backendUrl+'upload', {    
-            method: "POST",            
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('fil mottagen', data)
-        })
-        .catch(function(err) {
-            console.log('Något gick fel', err);
-        });
-}
+  async function postImage(file) {
+    const formData = new FormData();
+    formData.append("avatar", file, file.name);
+    const response = await fetch(backendUrl + "avatars/upload", {
+      method: "POST",
+      body: formData,
+    });
+    if (!response.ok) {
+      const message = `An error has occured: ${response.status}`;
+      throw new Error(message);
+    }
+    const avatarData = await response.json();
+    return avatarData;
+  }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    avatar && postImage(avatar);
     localStorage.setItem("userName", userName);
+    let defaultAvatarData = {
+      filename: null,
+      widthToHeightRatio: 0.72,
+    };
+    let avatarData = fileToUpload
+      ? await postImage(fileToUpload)
+      : defaultAvatarData;
     socket.emit("newUser", {
       userName,
       socketID: socket.id,
       userColor: userColor,
       position: { top: randomVal(0, 70), left: randomVal(0, 93) },
       messages: [],
-      //avatar: avatar
+      avatar: avatarData.filename,
+      widthToHeightRatio: avatarData.widthToHeightRatio,
     });
     navigate("/talk");
   };
 
-
   return (
-    <form className={styles.loginform} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.loginform}>
       <h2>Welcome to the chat</h2>
-      {avatar && <img src ={imagePreview} height='50px' width='50px' alt="" />}
       <div>
         <label htmlFor="username">username</label>
         <input
@@ -96,14 +103,28 @@ const Home = () => {
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
         />
-        <label htmlFor="avatar">upload avatar (optional)</label>
-        <input
-          type="file"
-          id="avatar"
-          name="avatar"
-          accept="image/*"
-          onChange={(e) => setAvatar(e.target.files[0])}
-        />
+
+        <div className={styles.image_picker}>
+          <div>
+            <label htmlFor="avatar">upload avatar (optional)</label>
+            <input
+              type="file"
+              id="avatar"
+              name="avatar"
+              accept="image/*"
+              onChange={(e) => setFileToUpload(e.target.files[0])}
+            />
+          </div>
+          {fileToUpload && (
+            <img
+              src={avatarPreview}
+              className={styles.image_preview}
+              height="80px"
+              width="auto"
+              alt=""
+            />
+          )}
+        </div>
       </div>
       {connected ? (
         <>
