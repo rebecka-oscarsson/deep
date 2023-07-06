@@ -19,10 +19,10 @@ const Bubble = (
 
   useEffect(() => {
     if (newMessage) {
-      let className = newMessage.first ? styles.first : styles.new;
-      setBubbleClass(className)
+      let newMessageClass = newMessage.first ? styles.first : styles.new;
+      setBubbleClass(newMessageClass);
       setTimeout(() => {
-        setBubbleClass(null)
+        setBubbleClass(styles.old)
       }, 1000)
     }
   }, [newMessage]);
@@ -35,9 +35,9 @@ const Bubble = (
   }, [bubbleRef?.current?.offsetHeight, bubbleRef?.current?.offsetWidth]);
 
   return (
-    <div className={`${styles.bubble} ${bubbleClass}`} ref={bubbleRef} style={style}>
+    <div className={`${styles.bubble} ${bubbleClass}`} ref={bubbleRef} style={style} title={messages[messages.length - 1]?.formattedTime}>
       {messages[messages.length - 1]?.text}
-      <div className={styles.timestamp}>{messages[messages.length - 1]?.formattedTime}</div>
+      {/* <div className={styles.timestamp}>{messages[messages.length - 1]?.formattedTime}</div> */}
     </div>
   )
 }
