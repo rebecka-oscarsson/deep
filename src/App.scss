@@ -34,6 +34,7 @@ input {
     &:active {
         background-color: rgba(112, 112, 112, 0.64);
     }
+    transition: background-color 0.3s
 }
 
 .primary-btn {
@@ -56,13 +57,12 @@ input {
     }
 }
 
-.disabled-btn { 
+.tertiary-btn { 
     @extend .btn;
-    pointer-events: none;
-    border-color: $disabled-btn;
-    color: $disabled-btn;
+    border-color: $tertiary-btn;
+    color: $tertiary-btn;
     &:hover {      
-        background-color: $disabled-btn-dark;
+        background-color: $tertiary-btn-dark;
         color: white;
     }}
 

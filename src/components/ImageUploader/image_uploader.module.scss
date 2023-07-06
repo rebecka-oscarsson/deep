@@ -1,0 +1,25 @@
+@import "../../App.scss";
+@import "../../variables.module.scss";
+
+.image_container {
+  display: flex;
+  flex-direction: column;
+  max-width: 150px;
+  padding-bottom: $spacing-normal;
+}
+
+.trash_button {
+  all: unset;
+  cursor: pointer;
+  font-size: $spacing-big;
+  padding: $spacing-small;
+  text-align: right;
+}
+
+input[type="file"]::file-selector-button {
+  @extend .tertiary-btn;
+}
+
+input[type="file"] {
+  padding-left: 0;
+}
