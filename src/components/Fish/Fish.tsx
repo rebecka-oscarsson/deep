@@ -80,8 +80,8 @@ const Fish = ({
     function calculateAvailableOcean() {
     const avatarsLongestSide = parseInt(variables.avatarsLongestSide);
     const landscapeOrientedAvatar = widthToHeightRatio > 1;
-    const bubbleHeightInPercent = bubbleDimensions.height? oceanSize.height/bubbleDimensions.height: 0;
-    const bubbleWidthInPercent = bubbleDimensions.width? oceanSize.width/bubbleDimensions.width: 0;
+    //const bubbleHeightInPercent = bubbleDimensions.height? oceanSize.height/bubbleDimensions.height: 0;
+    //const bubbleWidthInPercent = bubbleDimensions.width? oceanSize.width/bubbleDimensions.width: 0;
     const oceanHeightInVh = oceanSize.height/screenSize.height;
     const screenWidthToHeightRatio = screenSize.width/screenSize.height; //hur många vh är en vw
     const avatarWidthInVw = landscapeOrientedAvatar? avatarsLongestSide : avatarsLongestSide * widthToHeightRatio;
@@ -125,10 +125,10 @@ const Fish = ({
     const userPositionTop = position.top / 100 * availableOcean.height
     const userPositionLeft = position.left / 100 * availableOcean.width
     const userPosition = {top: userPositionTop, left: userPositionLeft};
-    setUserPosition(userPosition)
+    return userPosition
   }
 
-  const [userPosition, setUserPosition] = useState<{top: number, left:number}|null>(null);
+  const [userPosition, setUserPosition] = useState<{top: number, left:number}>(calculateUserPosition());
   const [bubbleDimensions, setBubbleDimensions] = useState({ height: 0, width: 0 });
   //const [fishDimensions, setFishDimensions] = useState<dimensions|null|undefined>(calculateFishDimensions());
 
@@ -160,7 +160,7 @@ const Fish = ({
   // }, [bubbleDimensions, messages])
 
     useEffect(() => {
-    calculateUserPosition()
+    setUserPosition(calculateUserPosition())
   }, [position])
 
   const imageUrl = backendUrl + "uploads/" + avatar;
@@ -190,18 +190,18 @@ const Fish = ({
   //   setFishDimensions({height: fishRef?.current?.clientHeight, width: fishRef?.current?.clientWidth});
   // }, [fishRef?.current?.offsetHeight, fishRef?.current?.clientWidth]);
 
-  function calculateFishDimensions() {
-    const fishDimensions = fishRef?.current?.offsetHeight? {height: fishRef?.current?.offsetHeight, width: fishRef?.current?.offsetWidth} : null;
-    return fishDimensions
-  }
+  // function calculateFishDimensions() {
+  //   const fishDimensions = fishRef?.current?.offsetHeight? {height: fishRef?.current?.offsetHeight, width: fishRef?.current?.offsetWidth} : null;
+  //   return fishDimensions
+  // }
 
 
   return (
     <div className={styles.container} >
       {/* ref={fishRef} */}
-      {messages && messages.length > 0 &&
-        <Bubble messages={messages} newMessage={newMessage} updateBubbleDimensions={updateBubbleDimensions} style={bubbleStyle()}/>
-      }
+      {/* {messages?.length > 0 && */}
+        <Bubble newMessage={newMessage} messages={messages} updateBubbleDimensions={updateBubbleDimensions} style={bubbleStyle()}/>
+      {/* } */}
       <div className={styles[movement]} title={username} style={style}>
 {/*       
        <ul>

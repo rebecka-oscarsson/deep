@@ -14,15 +14,19 @@ const Bubble = (
     : BubbleProps
 ) => {
 
-  const [bubbleClass, setBubbleClass] = useState(null);
+  const hiddenIfNoMessages = messages?.length > 0 ? null : styles.hidden
+
+  const [bubbleClass, setBubbleClass] = useState(hiddenIfNoMessages);
   const bubbleRef = useRef<HTMLDivElement>(null);
+
+
 
   useEffect(() => {
     if (newMessage) {
-      let newMessageClass = newMessage.first ? styles.first : styles.new;
-      setBubbleClass(newMessageClass);
+      let animatedBubble = newMessage.first ? styles.first : styles.new;
+      setBubbleClass(animatedBubble);
       setTimeout(() => {
-        setBubbleClass(styles.old)
+        setBubbleClass(null)
       }, 1000)
     }
   }, [newMessage]);
@@ -31,7 +35,7 @@ const Bubble = (
     if (!bubbleRef.current?.offsetHeight) {
       return;
     }
-    updateBubbleDimensions({height: bubbleRef?.current.offsetHeight, width: bubbleRef?.current?.offsetWidth});
+    updateBubbleDimensions({ height: bubbleRef?.current.offsetHeight, width: bubbleRef?.current?.offsetWidth });
   }, [bubbleRef?.current?.offsetHeight, bubbleRef?.current?.offsetWidth]);
 
   return (
