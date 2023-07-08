@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";import SocketContext from "../../SocketContext";
-import UsersContext from "../../UsersContext";
+import { useState, useContext } from "react";import SocketContext from "../../contexts/SocketContext";
+import UsersContext from "../../contexts/UsersContext";
 import { useNavigate } from "react-router-dom";
 import styles from "./chatinput.module.scss";
 

@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react';
-import SocketContext from '../../SocketContext';
-import ChatBody from "../ChatBody/ChatBody";
-import ChatInput from "../ChatInput/ChatInput";
+import SocketContext from '../../contexts/SocketContext';
+import ChatBody from "../../components/ChatBody/ChatBody";
+import ChatInput from "../../components/ChatInput/ChatInput";
 import styles from "./chatpage.module.scss";
 
 const ChatPage = () => {

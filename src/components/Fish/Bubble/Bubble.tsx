@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { Message, newMessage } from "../Fish"
 import styles from "./bubble.module.scss";
-import { Message, newMessage } from "../Fish/Fish"
 
 interface BubbleProps {
   messages: Message[];

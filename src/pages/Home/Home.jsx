@@ -1,10 +1,10 @@
 import styles from "./home.module.scss";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import SocketContext from "../../SocketContext";
+import SocketContext from "../../contexts/SocketContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHourglass2 } from "@fortawesome/free-regular-svg-icons";
-import ImageUploader from "../ImageUploader/ImageUploader";
+import ImageUploader from "../../components/ImageUploader/ImageUploader";
 import { userColor, randomVal, backendUrl } from "../../services";
 
 const Home = () => {

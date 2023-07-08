@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import socketIO from 'socket.io-client';
-import { backendUrl } from "./services"
+import { backendUrl } from "../services"
 
 const socket = socketIO.connect(backendUrl);
 
