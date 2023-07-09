@@ -10,6 +10,5 @@ details > summary::-webkit-details-marker /* Safari */ {
 .question { justify-self:flex-end; text-align: right; margin: $spacing-big $spacing-big 0 0}
 .question_icon {cursor:pointer; font-size: $spacing-xl; background-color:black; border-radius: 50%;}
 .chatbody {position:relative; flex-grow:1; background-color: rgb(27, 33, 34); height:100%; 
-  background: linear-gradient(25deg, $primary, rgb(2, 25, 29));
-  
+  background: $ocean; 
   }

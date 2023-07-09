@@ -1,16 +1,18 @@
 @import "../../../variables.module.scss";
-
 .bubble {
   border-radius: $spacing-big;
   padding: $spacing-normal;
   margin-bottom: $spacing-normal;
+  background: $ocean;
   box-shadow: inset 0 0 10px rgba(white, 0.5);
   border: 1px solid rgba(white, 0.5);
+  z-index: 2;
+  transition:bottom 0.3s ease-out, left 0.4s ease-out;
 }
-.timestamp {
-  font: $spacing-small $small-font;
-  text-transform: uppercase;
-}
+// .timestamp {
+//   font: $spacing-small $small-font;
+//   text-transform: uppercase;
+// }
 .new {
   animation: 0.5s ease-in-out grow;
 }
@@ -18,7 +20,7 @@
   animation: 0.5s ease-in appear;
 }
 .hidden {
-  display: none;
+  display:none
 }
 
 @keyframes grow {

@@ -2,24 +2,25 @@ import { useState, useEffect, useRef } from "react";
 import { Message, newMessage } from "../Fish"
 import styles from "./bubble.module.scss";
 
-interface BubbleProps {
+interface Props {
   messages: Message[];
   newMessage: newMessage
   updateBubbleDimensions: Function
   style: React.CSSProperties
 }
 
-const Bubble = (
-  { messages, newMessage, updateBubbleDimensions, style }
-    : BubbleProps
-) => {
+export function Bubble(props: Props) {
 
-  const hiddenIfNoMessages = messages?.length > 0 ? null : styles.hidden
+  const {
+    messages,
+    newMessage,
+    updateBubbleDimensions,
+    style
+  } = props
 
-  const [bubbleClass, setBubbleClass] = useState(hiddenIfNoMessages);
+  const [bubbleClass, setBubbleClass] = useState(messages?.length > 0 ? null : styles.hidden);
+
   const bubbleRef = useRef<HTMLDivElement>(null);
-
-
 
   useEffect(() => {
     if (newMessage) {
@@ -32,10 +33,11 @@ const Bubble = (
   }, [newMessage]);
 
   useEffect(() => {
-    if (!bubbleRef.current?.offsetHeight) {
+    if (!bubbleRef?.current?.offsetHeight) {
       return;
     }
-    updateBubbleDimensions({ height: bubbleRef?.current.offsetHeight, width: bubbleRef?.current?.offsetWidth });
+    const margin = parseInt(window.getComputedStyle(bubbleRef.current).getPropertyValue("margin-bottom"));
+    updateBubbleDimensions({ height: bubbleRef?.current?.offsetHeight + margin, width: bubbleRef?.current?.offsetWidth });
   }, [bubbleRef?.current?.offsetHeight, bubbleRef?.current?.offsetWidth]);
 
   return (
@@ -45,5 +47,3 @@ const Bubble = (
     </div>
   )
 }
-
-export default Bubble;
