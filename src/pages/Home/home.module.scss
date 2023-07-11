@@ -1,11 +1,12 @@
-@import "../../variables.modules.scss";
+@import "../../variables.module.scss";
 
 .loginform {
   display:flex;
   flex-direction: column;
   align-items: center;
   label {display:block}
-  input{ margin: 0 $spacing-normal $spacing-normal 0}
+  input{ margin: 0 0 $spacing-normal 0}
 }
 
+.loginform > div {margin:auto}
 .hourglass_icon {margin: $spacing-big; font-size: $spacing-xl;}

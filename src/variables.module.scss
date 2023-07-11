@@ -12,11 +12,12 @@ $accent: #39a29b;
 $accent-dark: #2a6f69;
 $secondary-btn: #b4467d;
 $secondary-btn-dark: #642a47;
-$disabled-btn: #c5d6b9;
-$disabled-btn-dark: #2a3f64;
+$tertiary-btn: #e7bb85;
+$tertiary-btn-dark: #613c01;
 $footer1: rgba(132, 139, 78, 0.2);
 $footer2: #332f15;
 $footer3: #202317;
+$ocean: linear-gradient(25deg, $primary, rgb(2, 25, 29));
 
 $btn-hover: #afe3df;
 $btn-active: #707070a3;
@@ -30,3 +31,8 @@ $spacing-xl: 2em;
 $spacing-big: 1.5em;
 $spacing-normal: 1em;
 $spacing-small: 0.5em;
+$avatar-longestside: 7vw;
+
+:export {
+    avatarsLongestSide:$avatar-longestside
+}

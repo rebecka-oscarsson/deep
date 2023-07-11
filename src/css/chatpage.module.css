@@ -1,9 +1,0 @@
-.chatpage {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-  background-image: radial-gradient(rgba(132, 139, 78, 0.2) 2px, transparent 2px), radial-gradient(rgba(132, 139, 78, 0.2) 2px, transparent 2px);
-  background-size: 16px 16px;
-  background-position: 0 0, 8px 8px;
-  background-color: #202317;
-}/*# sourceMappingURL=chatpage.module.css.map */
