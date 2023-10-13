@@ -11,7 +11,7 @@ const ChatInput = () => {
 
   const handleSendMessage = (e) => {
     e.preventDefault();
-    if (message.trim() && localStorage.getItem("userName")) {
+    if (message.trim()) {
       socket.emit("messageFromUser", {
         text: message,
         name: localStorage.getItem("userName"),
