@@ -36,6 +36,7 @@ const ChatBody = () => {const oceanRef = useRef();
 
   return (
     <main className={styles.chatbody} ref={oceanRef}>
+      <div className={styles.chatbodyContent}>
       <details className={styles.question}>
         <summary>
           <FontAwesomeIcon
@@ -64,7 +65,7 @@ const ChatBody = () => {const oceanRef = useRef();
               oceanSize={oceanSize}
             ></Fish>
           ))
-        : null}
+        : null}</div>
     </main>
   );
 };

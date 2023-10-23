@@ -9,10 +9,10 @@ body {
     background-color: $primary;
     margin: 0;
     height: 100vh;
-    overflow: hidden;
+    max-height: 100vh;
 }
 
-#root {margin:0; height:100%}
+#root {margin:0; height:100%; max-height: 100%;}
 
 input {
     padding: $spacing-small;
@@ -65,19 +65,3 @@ input {
         background-color: $tertiary-btn-dark;
         color: white;
     }}
-
-//tablet
-
-// @media (min-width: 480px) and (max-width: 768px) {
-//     h1 {
-//         font-size: $h1-font-size-tablet;
-//     }
-// }
-
-// //desktop
-
-// @media (min-width: 769px) {
-//     h1 {
-//         font-size: $h1-font-size-desktop;
-//     }
-// }

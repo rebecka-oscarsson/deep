@@ -3,7 +3,6 @@ import socketIO from 'socket.io-client';
 import { backendUrl } from "../services"
 
 const socket = socketIO.connect(backendUrl);
-
 const SocketContext = createContext();
 
 export function SocketProvider({ children }) {
