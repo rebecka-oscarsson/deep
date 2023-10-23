@@ -51,6 +51,7 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     localStorage.setItem("userName", userName);
+    //defaultAvatar är maneten
     let defaultAvatarData = {
       filename: null,
       widthToHeightRatio: 0.72,

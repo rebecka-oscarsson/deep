@@ -3,9 +3,11 @@ import SocketContext from '../../contexts/SocketContext';
 import ChatBody from "../../components/ChatBody/ChatBody";
 import ChatInput from "../../components/ChatInput/ChatInput";
 import styles from "./chatpage.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const ChatPage = () => {
   const socket = useContext(SocketContext);
+  const navigate = useNavigate();
 
   const handleKeyDown = (event: { key: string; }) => {
     if (event.key.includes("Arrow"))
@@ -22,8 +24,9 @@ const ChatPage = () => {
     });
   };
 
-
   useEffect(() => {
+    if(!socket.connected)
+    navigate("/")
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
     // cleanup this component
@@ -34,10 +37,12 @@ const ChatPage = () => {
   }, []);
 
   return (
-    <div className={styles.chatpage}>
+      <div className={styles.chatpage}>
+      <div className={styles.sky}></div><div className={styles.wave}></div>
       <ChatBody />
       <ChatInput />
     </div>
+
   );
 }
 
