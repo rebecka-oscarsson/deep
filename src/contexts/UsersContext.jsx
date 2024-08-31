@@ -1,4 +1,5 @@
-import { createContext, useContext } from "react";import { formatTime } from "../services";
+import { createContext, useContext } from "react";
+import { formatTime } from "../services";
 import SocketContext from "./SocketContext";
 import { useState, useEffect } from "react";
 
@@ -22,7 +23,9 @@ export function UsersProvider({ children }) {
     });
   }, [socket, users]);
   return (
-    <UsersContext.Provider value={{users, setUsers}}>{children}</UsersContext.Provider>
+    <UsersContext.Provider value={{ users, setUsers }}>
+      {children}
+    </UsersContext.Provider>
   );
 }
 

@@ -94,7 +94,7 @@ const Home = () => {
         <>
           <input type="submit" value="enter" className="primary-btn" />
           <div>
-            Nobody there? Log in to another browser tab and talk to yourself
+            <small>The server can be slow, don't give up</small>
           </div>
         </>
       ) : (
